@@ -1,15 +1,10 @@
 import net
 import threading
 
-#===============================================================================
-# class Main(threading.Thread):
-# 	def __init__(self):
-# 		threading.Thread.__init__(self)
-# 		self.Channels=connections.Channels()
-# 	def run(self):
-# 		self.Channels.listen()
-#===============================================================================
-
+def mesh():
+	a=net.Mesh()
+	a.main()
+	
 class DHT:
 	def __init__(self,connectionsobj=net.Mesh()):
 		pass
@@ -21,3 +16,6 @@ class DHT:
 		pass
 	def update(self,connections,bootstrap):
 		pass
+if __name__ == '__main__':
+	Mesh=threading.Thread(target=mesh)
+	Mesh.start()
