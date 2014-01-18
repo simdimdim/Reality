@@ -1,36 +1,23 @@
+import net
 import threading
-import time
-import socket
-import random
+
+#===============================================================================
+# class Main(threading.Thread):
+# 	def __init__(self):
+# 		threading.Thread.__init__(self)
+# 		self.Channels=connections.Channels()
+# 	def run(self):
+# 		self.Channels.listen()
+#===============================================================================
 
 class DHT:
-	def __init__(self):
+	def __init__(self,connectionsobj=net.Mesh()):
 		pass
 	def listen(self):
 		pass
-
-
-
-
-a=socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
-try:
-	port=63412
-	a.bind(('',port))
-except:
-	a.bind(('',0))
-	port=a.getsockname()[1]
-print(a.getsockname())
-addr=('192.168.1.9',port)
-addr=addr
-c=1
-while c<10:
-	if random.randint(0,8)<=7:
-		data=bytes(str(c),'ascii')
-		a.sendto(data,addr)
-	data,host=a.recvfrom(2048)
-	if data:
-		print(data.decode(),host)
-	if not data:
-		break
-	c+=1
+	def initiate(self,bootstrap=None):
+		#if bootstrap is None:
+			#bootstrap=self.bootstrap
+		pass
+	def update(self,connections,bootstrap):
+		pass
